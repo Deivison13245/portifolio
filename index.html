@@ -3,41 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deivison Santos Mota | Full-Stack Dev</title>
+    <title>Deivison Santos Mota | Digital Sky Master</title>
+    <link rel="icon" href="assets/icons/Favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navegação Lateral - Moon Phases -->
     <nav class="sidebar-nav">
+        <!-- Logo DSM -->
+        <div class="dsm-logo" title="Digital Sky Master">
+            <svg width="48" height="48" viewBox="0 0 100 100">
+                <!-- Background planet -->
+                <circle cx="50" cy="50" r="40" fill="#0e1a2e" stroke="#00c8ff" stroke-width="1.5"/>
+                <!-- Orbit ring -->
+                <ellipse cx="50" cy="50" rx="48" ry="48" fill="none" stroke="#0a2040" stroke-width="1" opacity="0.5"/>
+                <!-- Crescent moons pattern -->
+                <path d="M 35 30 Q 40 25 45 30 Q 40 35 35 30" fill="none" stroke="#00c8ff" stroke-width="1.5" opacity="0.8"/>
+                <path d="M 55 35 Q 60 30 65 35 Q 60 40 55 35" fill="none" stroke="#00c8ff" stroke-width="1.5" opacity="0.8"/>
+                <path d="M 40 55 Q 45 50 50 55 Q 45 60 40 55" fill="none" stroke="#00c8ff" stroke-width="1.5" opacity="0.8"/>
+                <path d="M 60 55 Q 65 50 70 55 Q 65 60 60 55" fill="none" stroke="#00c8ff" stroke-width="1.5" opacity="0.8"/>
+                <!-- Center dots -->
+                <circle cx="50" cy="50" r="8" fill="none" stroke="#00c8ff" stroke-width="1" opacity="0.6"/>
+                <circle cx="50" cy="50" r="3" fill="#00c8ff" opacity="0.7"/>
+                <!-- Stars -->
+                <circle cx="25" cy="30" r="1.5" fill="#00c8ff" opacity="0.8"/>
+                <circle cx="75" cy="25" r="1.2" fill="#00c8ff" opacity="0.7"/>
+                <circle cx="80" cy="70" r="1.5" fill="#00c8ff" opacity="0.8"/>
+                <circle cx="20" cy="75" r="1.2" fill="#00c8ff" opacity="0.7"/>
+                <!-- Glow effect -->
+                <circle cx="50" cy="50" r="42" fill="none" stroke="#00c8ff" stroke-width="0.5" opacity="0.2"/>
+            </svg>
+        </div>
         <ul class="nav-menu">
             <li>
-                <a href="#inicio" class="moon-phase" data-section="inicio" title="INÍCIO">
+                <a href="#inicio" class="moon-phase moon-nova" data-section="inicio" title="INÍCIO">
                     <svg class="moon-svg" viewBox="0 0 30 30" width="32" height="32">
-                        <circle cx="15" cy="15" r="13" class="moon-circle"/>
+                        <!-- New Moon - Almost invisible, just outline -->
+                        <circle cx="15" cy="15" r="13" class="moon-circle" fill="rgba(0,0,0,0.8)" stroke="#1a4a7a" stroke-width="1"/>
+                        <!-- Very faint details visible only on hover -->
+                        <circle cx="12" cy="12" r="1.5" fill="rgba(0,0,0,0.4)" class="moon-detail" opacity="0.2"/>
+                        <circle cx="18" cy="18" r="1" fill="rgba(0,0,0,0.3)" class="moon-detail" opacity="0.2"/>
                     </svg>
                     <span class="moon-label">INÍCIO</span>
                 </a>
             </li>
             <li>
-                <a href="#quemsomos" class="moon-phase" data-section="quemsomos" title="QUEM SOU">
+                <a href="#quemsomos" class="moon-phase moon-crescente" data-section="quemsomos" title="QUEM SOU">
                     <svg class="moon-svg" viewBox="0 0 30 30" width="32" height="32">
+                        <!-- Waxing Crescent Moon -->
                         <circle cx="15" cy="15" r="13" class="moon-circle"/>
+                        <!-- Crescent shading (quarter visible) -->
+                        <path d="M 18 2 A 13 13 0 0 1 18 28 A 9 9 0 0 1 18 2 Z" fill="rgba(0,0,0,0.5)"/>
+                        <!-- Craters visible on illuminated side -->
+                        <circle cx="8" cy="12" r="1.8" fill="rgba(0,0,0,0.3)" class="moon-detail" opacity="0.6"/>
+                        <circle cx="10" cy="22" r="1.2" fill="rgba(0,0,0,0.2)" class="moon-detail" opacity="0.5"/>
+                        <circle cx="6" cy="18" r="0.8" fill="rgba(0,0,0,0.2)" class="moon-detail" opacity="0.5"/>
+                        <!-- Surface shine on illuminated portion -->
+                        <ellipse cx="8" cy="15" rx="2.5" ry="3" fill="rgba(100,180,255,0.15)" class="moon-detail"/>
                     </svg>
                     <span class="moon-label">QUEM SOU</span>
                 </a>
             </li>
             <li>
-                <a href="#projetos" class="moon-phase" data-section="projetos" title="PROJETOS">
+                <a href="#projetos" class="moon-phase moon-cheia" data-section="projetos" title="PROJETOS">
                     <svg class="moon-svg" viewBox="0 0 30 30" width="32" height="32">
-                        <circle cx="15" cy="15" r="13" class="moon-circle"/>
+                        <!-- Full Moon - Fully illuminated -->
+                        <circle cx="15" cy="15" r="13" class="moon-circle" fill="#b8d4ff" stroke="#00c8ff" stroke-width="1.2"/>
+                        <!-- Multiple craters visible on full moon -->
+                        <circle cx="12" cy="10" r="2" fill="rgba(0,0,0,0.35)"/>
+                        <circle cx="18" cy="18" r="1.8" fill="rgba(0,0,0,0.3)"/>
+                        <circle cx="10" cy="20" r="1.2" fill="rgba(0,0,0,0.25)"/>
+                        <circle cx="20" cy="12" r="1" fill="rgba(0,0,0,0.25)"/>
+                        <circle cx="15" cy="15" r="1.5" fill="rgba(0,0,0,0.2)" class="moon-detail"/>
+                        <!-- Highlights from curvature -->
+                        <ellipse cx="11" cy="14" rx="1.5" ry="2" fill="rgba(255,255,255,0.15)" class="moon-detail"/>
+                        <ellipse cx="20" cy="16" rx="1" ry="1.5" fill="rgba(255,255,255,0.1)" class="moon-detail"/>
                     </svg>
                     <span class="moon-label">PROJETOS</span>
                 </a>
             </li>
             <li>
-                <a href="#contato" class="moon-phase" data-section="contato" title="CONTATO">
+                <a href="#contato" class="moon-phase moon-minguante" data-section="contato" title="CONTATO">
                     <svg class="moon-svg" viewBox="0 0 30 30" width="32" height="32">
+                        <!-- Waning Crescent Moon -->
                         <circle cx="15" cy="15" r="13" class="moon-circle"/>
+                        <!-- Crescent shading (quarter visible on left) -->
+                        <path d="M 12 2 A 13 13 0 0 0 12 28 A 9 9 0 0 0 12 2 Z" fill="rgba(0,0,0,0.5)"/>
+                        <!-- Craters visible on illuminated side -->
+                        <circle cx="22" cy="12" r="1.8" fill="rgba(0,0,0,0.3)" class="moon-detail" opacity="0.6"/>
+                        <circle cx="20" cy="22" r="1.2" fill="rgba(0,0,0,0.2)" class="moon-detail" opacity="0.5"/>
+                        <circle cx="24" cy="18" r="0.8" fill="rgba(0,0,0,0.2)" class="moon-detail" opacity="0.5"/>
+                        <!-- Surface shine on illuminated portion -->
+                        <ellipse cx="22" cy="15" rx="2.5" ry="3" fill="rgba(100,180,255,0.15)" class="moon-detail"/>
                     </svg>
                     <span class="moon-label">CONTATO</span>
                 </a>
@@ -48,9 +105,23 @@
     <main>
     <section id="inicio" class="hero">
         <div class="hero-content">
+            <!-- DSM System Badge -->
+            <div class="dsm-badge">
+                <svg width="24" height="24" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" fill="#0e1a2e" stroke="#00c8ff" stroke-width="1.5"/>
+                    <ellipse cx="50" cy="50" rx="48" ry="48" fill="none" stroke="#0a2040" stroke-width="1" opacity="0.5"/>
+                    <path d="M 35 30 Q 40 25 45 30 Q 40 35 35 30" fill="none" stroke="#00c8ff" stroke-width="1.5" opacity="0.8"/>
+                    <path d="M 55 35 Q 60 30 65 35 Q 60 40 55 35" fill="none" stroke="#00c8ff" stroke-width="1.5" opacity="0.8"/>
+                    <path d="M 40 55 Q 45 50 50 55 Q 45 60 40 55" fill="none" stroke="#00c8ff" stroke-width="1.5" opacity="0.8"/>
+                    <path d="M 60 55 Q 65 50 70 55 Q 65 60 60 55" fill="none" stroke="#00c8ff" stroke-width="1.5" opacity="0.8"/>
+                    <circle cx="50" cy="50" r="8" fill="none" stroke="#00c8ff" stroke-width="1" opacity="0.6"/>
+                    <circle cx="50" cy="50" r="3" fill="#00c8ff" opacity="0.7"/>
+                </svg>
+                <span>DIGITAL SKY MASTER</span>
+            </div>
             <h1 class="hero-title">DEIVISON SANTOS MOTA</h1>
             <p class="hero-subtitle">DESENVOLVEDOR FULL-STACK</p>
-            <p class="hero-description">Criando soluções digitais com foco em código limpo, performance e experiência do usuário.</p>
+            <p class="hero-description">Sistemas que alcançam o que outros apenas admiram.</p>
             <a href="#projetos" class="cta-button">EXPLORAR PROJETOS →</a>
         </div>
         

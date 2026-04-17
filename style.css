@@ -47,9 +47,39 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 2rem 0;
+    justify-content: flex-start;
+    padding: 1.5rem 0 2rem 0;
     z-index: 1000;
+    padding-top: 1rem;
+}
+
+/* Logo DSM */
+.dsm-logo {
+    margin-bottom: 2rem;
+    cursor: pointer;
+    transition: transform 300ms ease-in-out, filter 300ms ease-in-out;
+    filter: drop-shadow(0 0 3px rgba(0, 200, 255, 0.3));
+    animation: rotatePlanet 20s linear infinite;
+}
+
+.dsm-logo:hover {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 8px rgba(0, 200, 255, 0.6));
+    animation-play-state: paused;
+}
+
+@keyframes rotatePlanet {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+.dsm-logo svg {
+    width: 48px;
+    height: 48px;
 }
 
 .nav-menu {
@@ -85,17 +115,108 @@ body {
     transition: all 300ms ease-in-out;
 }
 
-.moon-circle {
+/* Lua Nova - Quase invisível */
+.moon-nova .moon-circle {
+    fill: rgba(0, 0, 0, 0.8);
+    stroke: #1a4a7a;
+    stroke-width: 1;
+}
+
+.moon-nova:hover .moon-circle {
+    fill: #1a3a5a;
+    stroke: #00c8ff;
+}
+
+.moon-nova.active .moon-circle {
+    fill: #0a1a2a;
+    stroke: #00c8ff;
+    filter: drop-shadow(0 0 4px rgba(0, 200, 255, 0.4));
+}
+
+/* Lua Crescente - Quarter visible */
+.moon-crescente .moon-circle {
     fill: #060a12;
     stroke: #1a4a7a;
     stroke-width: 1;
     transition: all 300ms ease-in-out;
 }
 
-.moon-phase.active .moon-circle {
-    fill: #00c8ff;
+.moon-crescente:hover .moon-circle {
+    fill: #0a1a2e;
+    stroke: #00c8ff;
+}
+
+.moon-crescente.active .moon-circle {
+    fill: #2a5a8a;
     stroke: #00c8ff;
     filter: drop-shadow(0 0 8px rgba(0, 200, 255, 0.6));
+}
+
+/* Lua Cheia - Fully illuminated */
+.moon-cheia .moon-circle {
+    fill: #a0c0ff;
+    stroke: #00c8ff;
+    stroke-width: 1.2;
+    transition: all 300ms ease-in-out;
+}
+
+.moon-cheia:hover .moon-circle {
+    fill: #b8d4ff;
+    stroke: #00c8ff;
+    filter: drop-shadow(0 0 10px rgba(0, 200, 255, 0.8));
+}
+
+.moon-cheia.active .moon-circle {
+    fill: #d0e4ff;
+    stroke: #00c8ff;
+    filter: drop-shadow(0 0 15px rgba(0, 200, 255, 0.9));
+}
+
+/* Lua Minguante - Quarter visible (outro lado) */
+.moon-minguante .moon-circle {
+    fill: #060a12;
+    stroke: #1a4a7a;
+    stroke-width: 1;
+    transition: all 300ms ease-in-out;
+}
+
+.moon-minguante:hover .moon-circle {
+    fill: #0a1a2e;
+    stroke: #00c8ff;
+}
+
+.moon-minguante.active .moon-circle {
+    fill: #2a5a8a;
+    stroke: #00c8ff;
+    filter: drop-shadow(0 0 8px rgba(0, 200, 255, 0.6));
+}
+
+/* Detalhes das luas */
+.moon-detail {
+    transition: all 300ms ease-in-out;
+}
+
+.moon-cheia:hover .moon-detail {
+    fill: rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(0 0 2px rgba(0, 200, 255, 0.4));
+}
+
+.moon-cheia.active .moon-detail {
+    fill: rgba(0, 0, 0, 0.6);
+    filter: drop-shadow(0 0 3px rgba(100, 180, 255, 0.5));
+}
+
+.moon-crescente:hover .moon-detail,
+.moon-minguante:hover .moon-detail {
+    opacity: 0.8 !important;
+    fill: rgba(0, 0, 0, 0.4);
+}
+
+.moon-crescente.active .moon-detail,
+.moon-minguante.active .moon-detail {
+    opacity: 1 !important;
+    fill: rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(0 0 3px rgba(100, 180, 255, 0.5));
 }
 
 .moon-label {
@@ -145,6 +266,52 @@ main {
     z-index: 2;
     max-width: 800px;
     flex: 1;
+}
+
+/* DSM Badge */
+.dsm-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    border-radius: 50px;
+    background: rgba(0, 200, 255, 0.05);
+    backdrop-filter: blur(10px);
+    margin-bottom: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--cor-primaria);
+    text-transform: uppercase;
+    font-weight: 700;
+    animation: fadeInDown 0.8s ease-out;
+    transition: all 300ms ease-in-out;
+}
+
+.dsm-badge:hover {
+    border-color: rgba(0, 200, 255, 0.6);
+    background: rgba(0, 200, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.2);
+}
+
+.dsm-badge svg {
+    filter: drop-shadow(0 0 3px rgba(0, 200, 255, 0.3));
+    transition: filter 300ms ease-in-out;
+}
+
+.dsm-badge:hover svg {
+    filter: drop-shadow(0 0 8px rgba(0, 200, 255, 0.6));
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Moon decorativa no hero */
