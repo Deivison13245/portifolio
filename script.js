@@ -4,34 +4,41 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Elementos
-    const navIndicator = document.querySelector('.nav-indicator');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const moonPhases = document.querySelectorAll('.moon-phase');
     const sections = document.querySelectorAll('main > section');
 
-    // Configuração do indicador
-    function updateIndicator(link) {
-        const navMenu = document.querySelector('.nav-menu');
-        const linkIndex = Array.from(navLinks).indexOf(link);
+    // Atualizar lua ativa baseado na seção visível
+    function updateActiveMoon() {
+        let currentSection = null;
         
-        if (navMenu.offsetWidth > navMenu.offsetHeight) {
-            // Modo horizontal (mobile)
-            const offset = link.offsetLeft;
-            const width = link.offsetWidth;
-            navIndicator.style.transform = `translateX(calc(${offset}px + ${width / 2}px - 3px))`;
-        } else {
-            // Modo vertical (desktop)
-            const offset = link.offsetTop;
-            const height = link.offsetHeight;
-            navIndicator.style.transform = `translateY(calc(${offset}px + ${height / 2}px - 20px))`;
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            
+            if (window.scrollY >= sectionTop - 300 && window.scrollY < sectionTop + sectionHeight - 300) {
+                currentSection = section.id;
+            }
+        });
+
+        if (currentSection) {
+            moonPhases.forEach(moon => {
+                moon.classList.remove('active');
+            });
+            const activeMoon = document.querySelector(`[data-section="${currentSection}"]`);
+            if (activeMoon) {
+                activeMoon.classList.add('active');
+            }
         }
     }
 
-    // Click em links de navegação
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            navLinks.forEach(l => l.classList.remove('active'));
+    // Click em luas de navegação - deixar o link funcionar normalmente
+    moonPhases.forEach(moon => {
+        moon.addEventListener('click', function() {
+            // Remover active de todas as luas
+            moonPhases.forEach(m => m.classList.remove('active'));
+            // Adicionar active na lua clicada
             this.classList.add('active');
-            updateIndicator(this);
+            // O navegador vai naturalmente seguir o href
         });
     });
 
@@ -59,40 +66,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     sections.forEach(section => observer.observe(section));
 
-    // Scroll para atualizar indicador de navegação
+    // Scroll para atualizar lua ativa
     window.addEventListener('scroll', function() {
-        let currentSection = null;
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            
-            if (window.scrollY >= sectionTop - 200 && window.scrollY < sectionTop + sectionHeight - 200) {
-                currentSection = section.id;
-            }
-        });
-
-        if (currentSection) {
-            const correspondingLink = document.querySelector(`[data-section="${currentSection}"]`);
-            if (correspondingLink) {
-                navLinks.forEach(l => l.classList.remove('active'));
-                correspondingLink.classList.add('active');
-                updateIndicator(correspondingLink);
-            }
-        }
+        updateActiveMoon();
     });
 
-    // Inicializar com primeiro link ativo
-    if (navLinks.length > 0) {
-        navLinks[0].classList.add('active');
-        updateIndicator(navLinks[0]);
+    // Inicializar com primeira lua ativa
+    if (moonPhases.length > 0) {
+        moonPhases[0].classList.add('active');
     }
 
-    // Ajustar indicador ao redimensionar
+    // Ajustar ao redimensionar
     window.addEventListener('resize', function() {
-        const activeLink = document.querySelector('.nav-link.active');
-        if (activeLink) {
-            updateIndicator(activeLink);
-        }
+        updateActiveMoon();
     });
 });
