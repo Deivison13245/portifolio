@@ -1204,6 +1204,10 @@ body.light-mode .card-top-bar {
    RESPONSIVIDADE
    ======================================== */
 @media (max-width: 768px) {
+    :root {
+        --space: 1rem;
+    }
+
     .sidebar-nav {
         width: 100% !important;
         height: 80px !important;
@@ -1259,30 +1263,80 @@ body.light-mode .card-top-bar {
         padding-bottom: 100px !important;
     }
 
+    .hero {
+        padding: 1rem 1.5rem !important;
+    }
+
     .hero-title {
         font-size: 2rem;
         letter-spacing: 2px;
+        margin-bottom: 0.5rem;
     }
 
     .hero-subtitle {
         font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
     }
 
     .section-title {
         font-size: 1.5rem;
         letter-spacing: 3px;
+        margin-bottom: 1.5rem;
     }
 
-    .projects-grid {
-        grid-template-columns: 1fr;
+    .about-section {
+        padding: 1rem 1.5rem !important;
+    }
+
+    .about-text {
+        margin-bottom: 1rem;
+        padding: 0.8rem;
+        font-size: 0.95rem;
     }
 
     .skills-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .skill-card {
+        padding: 1rem;
+    }
+
+    .projects-section {
+        padding: 1rem 1.5rem !important;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        padding: 1rem;
+    }
+
+    .contact-section {
+        padding: 1rem 1.5rem !important;
     }
 
     .contact-card {
         margin: 0 1rem;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+    }
+
+    .coming-soon-bar {
+        margin-top: 2rem;
+        padding: 1.5rem 1rem;
     }
 
     .about-section::before {
@@ -1296,23 +1350,127 @@ body.light-mode .card-top-bar {
 
 @media (max-width: 480px) {
     :root {
-        --space: 1rem;
+        --space: 0.8rem;
+    }
+
+    .hero {
+        padding: 0.8rem 1rem !important;
     }
 
     .hero-title {
         font-size: 1.5rem;
+        letter-spacing: 1px;
+        margin-bottom: 0.3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
     }
 
     .hero-description {
         font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .dsm-badge {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.6rem;
+        margin-bottom: 1rem;
+    }
+
+    .cta-button {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.8rem;
     }
 
     .section-title {
         font-size: 1.2rem;
         letter-spacing: 2px;
+        margin-bottom: 1.2rem;
+    }
+
+    .about-section {
+        padding: 0.8rem 1rem !important;
+    }
+
+    .about-text {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .skills-grid {
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .skill-card h4 {
+        font-size: 0.85rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .skill-card p {
+        font-size: 0.85rem;
+    }
+
+    .projects-section {
+        padding: 0.8rem 1rem !important;
+    }
+
+    .projects-grid {
+        gap: 1rem;
+    }
+
+    .project-card {
+        padding: 0.8rem;
+    }
+
+    .project-header h3 {
+        font-size: 1rem;
+    }
+
+    .project-desc {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .contact-section {
+        padding: 0.8rem 1rem !important;
+    }
+
+    .contact-card {
+        max-width: 100%;
+        margin: 0 0.5rem;
+    }
+
+    .card-content {
+        padding: 1.2rem;
     }
 
     .contact-name {
         font-size: 1.1rem;
+    }
+
+    .avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .coming-soon-bar {
+        margin-top: 1.5rem;
+        padding: 1.2rem 0.8rem;
+    }
+
+    .coming-soon-content h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .coming-soon-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
     }
 }
