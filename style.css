@@ -1,5 +1,5 @@
 /* ========================================
-   VARIÁVEIS CSS - PERSONA 3 RELOAD
+   VARIÁVEIS CSS - PERSONA 3 RELOAD / ABA RECKILLER
    ======================================== */
 :root {
     --cor-primaria: #00c8ff;
@@ -10,6 +10,17 @@
     --cor-texto: #e4e6eb;
     --cor-texto-light: #a8aeb7;
     --space: 2rem;
+}
+
+/* Modo Claro - Tema Aba Reckiller */
+body.light-mode {
+    --cor-primaria: #FFD700;
+    --cor-fundo: #FFFFFF;
+    --cor-fundo-light: #F5F5F5;
+    --cor-acento: #FF8C00;
+    --cor-borda: #CCCCCC;
+    --cor-texto: #1a1a1a;
+    --cor-texto-light: #4a4a4a;
 }
 
 /* ========================================
@@ -31,6 +42,7 @@ body {
     color: var(--cor-texto);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 400ms ease-in-out, color 400ms ease-in-out;
 }
 
 /* ========================================
@@ -51,6 +63,12 @@ body {
     padding: 1.5rem 0 2rem 0;
     z-index: 1000;
     padding-top: 1rem;
+    transition: all 300ms ease-in-out;
+}
+
+body.light-mode .sidebar-nav {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 245, 245, 0.98) 100%);
+    border-right: 1px solid rgba(255, 215, 0, 0.3);
 }
 
 /* Logo DSM */
@@ -66,6 +84,55 @@ body {
     transform: scale(1.15);
     filter: drop-shadow(0 0 8px rgba(0, 200, 255, 0.6));
     animation-play-state: paused;
+}
+
+body.light-mode .dsm-logo {
+    filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.3));
+}
+
+body.light-mode .dsm-logo:hover {
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+}
+
+/* Botão de Toggle Tema */
+.theme-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 300ms ease-in-out;
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle-svg {
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(0 0 5px rgba(0, 200, 255, 0.2));
+    transition: all 300ms ease-in-out;
+}
+
+body.light-mode .theme-toggle-svg {
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3));
+}
+
+/* Lua no toggle (sempre visível) */
+.theme-toggle .moon-circle {
+    fill: rgba(0, 0, 0, 0.8);
+    stroke: #1a4a7a;
+    stroke-width: 1;
+    transition: all 300ms ease-in-out;
+}
+
+body.light-mode .theme-toggle .moon-circle {
+    fill: rgba(255, 215, 0, 0.9);
+    stroke: #FFD700;
 }
 
 @keyframes rotatePlanet {
@@ -86,7 +153,7 @@ body {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
     position: relative;
     width: 100%;
     align-items: center;
@@ -133,6 +200,22 @@ body {
     filter: drop-shadow(0 0 4px rgba(0, 200, 255, 0.4));
 }
 
+body.light-mode .moon-nova .moon-circle {
+    fill: rgba(0, 0, 0, 0.3);
+    stroke: #CCCCCC;
+}
+
+body.light-mode .moon-nova:hover .moon-circle {
+    fill: rgba(0, 0, 0, 0.5);
+    stroke: #FFD700;
+}
+
+body.light-mode .moon-nova.active .moon-circle {
+    fill: rgba(0, 0, 0, 0.7);
+    stroke: #FFD700;
+    filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.4));
+}
+
 /* Lua Crescente - Quarter visible */
 .moon-crescente .moon-circle {
     fill: #060a12;
@@ -150,6 +233,22 @@ body {
     fill: #2a5a8a;
     stroke: #00c8ff;
     filter: drop-shadow(0 0 8px rgba(0, 200, 255, 0.6));
+}
+
+body.light-mode .moon-crescente .moon-circle {
+    fill: rgba(255, 215, 0, 0.3);
+    stroke: #CCCCCC;
+}
+
+body.light-mode .moon-crescente:hover .moon-circle {
+    fill: rgba(255, 215, 0, 0.5);
+    stroke: #FFD700;
+}
+
+body.light-mode .moon-crescente.active .moon-circle {
+    fill: rgba(255, 215, 0, 0.8);
+    stroke: #FFD700;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
 }
 
 /* Lua Cheia - Fully illuminated */
@@ -172,6 +271,23 @@ body {
     filter: drop-shadow(0 0 15px rgba(0, 200, 255, 0.9));
 }
 
+body.light-mode .moon-cheia .moon-circle {
+    fill: rgba(255, 215, 0, 0.7);
+    stroke: #FFD700;
+}
+
+body.light-mode .moon-cheia:hover .moon-circle {
+    fill: rgba(255, 215, 0, 0.9);
+    stroke: #FF8C00;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+}
+
+body.light-mode .moon-cheia.active .moon-circle {
+    fill: #FFD700;
+    stroke: #FF8C00;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.9));
+}
+
 /* Lua Minguante - Quarter visible (outro lado) */
 .moon-minguante .moon-circle {
     fill: #060a12;
@@ -189,6 +305,22 @@ body {
     fill: #2a5a8a;
     stroke: #00c8ff;
     filter: drop-shadow(0 0 8px rgba(0, 200, 255, 0.6));
+}
+
+body.light-mode .moon-minguante .moon-circle {
+    fill: rgba(255, 215, 0, 0.3);
+    stroke: #CCCCCC;
+}
+
+body.light-mode .moon-minguante:hover .moon-circle {
+    fill: rgba(255, 215, 0, 0.5);
+    stroke: #FFD700;
+}
+
+body.light-mode .moon-minguante.active .moon-circle {
+    fill: rgba(255, 215, 0, 0.8);
+    stroke: #FFD700;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
 }
 
 /* Detalhes das luas */
@@ -220,19 +352,33 @@ body {
 }
 
 .moon-label {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     letter-spacing: 1px;
     color: var(--cor-texto-light);
     text-transform: uppercase;
     font-weight: 700;
     text-align: center;
-    max-width: 70px;
+    max-width: 65px;
     line-height: 1.1;
     transition: color 300ms ease-in-out;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.moon-phase:hover .moon-label,
+.moon-phase.active .moon-label {
+    opacity: 1;
+    max-height: 50px;
 }
 
 .moon-phase.active .moon-label {
     color: var(--cor-primaria);
+}
+
+body.light-mode .moon-phase.active .moon-label {
+    color: #FF8C00;
 }
 
 /* ========================================
@@ -294,6 +440,18 @@ main {
     box-shadow: 0 0 20px rgba(0, 200, 255, 0.2);
 }
 
+body.light-mode .dsm-badge {
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    background: rgba(255, 215, 0, 0.05);
+    color: #FF8C00;
+}
+
+body.light-mode .dsm-badge:hover {
+    border-color: rgba(255, 215, 0, 0.6);
+    background: rgba(255, 215, 0, 0.1);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
 .dsm-badge svg {
     filter: drop-shadow(0 0 3px rgba(0, 200, 255, 0.3));
     transition: filter 300ms ease-in-out;
@@ -314,25 +472,7 @@ main {
     }
 }
 
-/* Moon decorativa no hero */
-.moon-hero {
-    position: absolute;
-    right: 5%;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-    opacity: 0.8;
-    animation: floatMoon 4s ease-in-out infinite;
-}
 
-@keyframes floatMoon {
-    0%, 100% {
-        transform: translateY(-50%) translateX(0);
-    }
-    50% {
-        transform: translateY(-60%) translateX(10px);
-    }
-}
 
 .hero-title {
     font-size: 3.5rem;
@@ -403,6 +543,20 @@ main {
     box-shadow: 0 0 20px rgba(0, 200, 255, 0.3);
 }
 
+body.light-mode .cta-button {
+    border: 1px solid #FF8C00;
+    color: #FF8C00;
+}
+
+body.light-mode .cta-button::before {
+    background: rgba(255, 215, 0, 0.1);
+}
+
+body.light-mode .cta-button:hover {
+    color: #FF8C00;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
 /* Linhas decorativas */
 .decorative-line {
     position: absolute;
@@ -439,6 +593,7 @@ main {
     text-align: center;
     position: relative;
     padding-bottom: 1.5rem;
+    transition: color 400ms ease-in-out;
 }
 
 .section-title::after {
@@ -450,6 +605,7 @@ main {
     width: 100px;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--cor-primaria), transparent);
+    transition: background 400ms ease-in-out;
 }
 
 /* ========================================
@@ -518,6 +674,7 @@ main {
     overflow: hidden;
     animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0;
+    transition: all 300ms ease-in-out;
 }
 
 .skill-card::before {
@@ -533,6 +690,15 @@ main {
 
 .skill-card:hover::before {
     left: 0;
+}
+
+body.light-mode .skill-card {
+    background: rgba(255, 215, 0, 0.08);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+body.light-mode .skill-card::before {
+    background: #FF8C00;
 }
 
 .skill-card:nth-child(1) {
@@ -617,21 +783,23 @@ main {
     top: 0;
 }
 
-.project-card:nth-child(1) {
-    animation-delay: 0.1s;
+body.light-mode .project-card {
+    background: rgba(255, 215, 0, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
 }
 
-.project-card:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.project-card:nth-child(3) {
-    animation-delay: 0.3s;
+body.light-mode .project-card::before {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), transparent);
 }
 
 .project-card:hover {
     border-color: var(--cor-primaria);
     box-shadow: 0 0 15px rgba(0, 200, 255, 0.2);
+}
+
+body.light-mode .project-card:hover {
+    border-color: #FFD700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
 }
 
 .project-header {
@@ -721,6 +889,134 @@ main {
     box-shadow: 0 0 8px rgba(0, 200, 255, 0.2);
 }
 
+body.light-mode .btn-link-secondary {
+    border: 0.5px solid rgba(255, 215, 0, 0.5);
+    color: var(--cor-texto);
+}
+
+body.light-mode .btn-link-secondary:hover {
+    border-color: #FFD700;
+    color: #FF8C00;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
+}
+
+/* ========================================
+   BARRA MUITO MAIS POR VIR
+   ======================================== */
+.coming-soon-bar {
+    margin-top: 4rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(0, 200, 255, 0.08), rgba(59, 139, 212, 0.08));
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out;
+    transition: all 300ms ease-in-out;
+}
+
+body.light-mode .coming-soon-bar {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(255, 140, 0, 0.08));
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.coming-soon-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cor-primaria), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        left: -100%;
+    }
+    50% {
+        left: 100%;
+    }
+}
+
+.coming-soon-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.coming-soon-content h3 {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    color: var(--cor-primaria);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-weight: 900;
+}
+
+.coming-soon-content p {
+    font-size: 0.95rem;
+    color: var(--cor-texto-light);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.github-link {
+    display: inline-block;
+    padding: 0.7rem 1.8rem;
+    border: 1px solid var(--cor-primaria);
+    background: transparent;
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: all 300ms ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.github-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 200, 255, 0.15);
+    transition: left 300ms ease-in-out;
+    z-index: -1;
+}
+
+.github-link:hover::before {
+    left: 0;
+}
+
+.github-link:hover {
+    color: var(--cor-primaria);
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.4);
+}
+
+body.light-mode .coming-soon-content h3 {
+    color: #FF8C00;
+}
+
+body.light-mode .github-link {
+    border: 1px solid #FFD700;
+    color: #FF8C00;
+}
+
+body.light-mode .github-link::before {
+    background: rgba(255, 215, 0, 0.15);
+}
+
+body.light-mode .github-link:hover {
+    color: #FFD700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
 /* ========================================
    SEÇÃO CONTATO
    ======================================== */
@@ -754,6 +1050,12 @@ main {
     overflow: hidden;
     animation: fadeInUp 0.8s ease-out;
     z-index: 2;
+    transition: all 300ms ease-in-out;
+}
+
+body.light-mode .contact-card {
+    background: rgba(245, 245, 245, 0.95);
+    border: 1px solid rgba(255, 215, 0, 0.3);
 }
 
 .card-top-bar {
@@ -763,6 +1065,11 @@ main {
     position: absolute;
     top: 0;
     left: 0;
+    transition: background 300ms ease-in-out;
+}
+
+body.light-mode .card-top-bar {
+    background: #FFD700;
 }
 
 .card-content {
